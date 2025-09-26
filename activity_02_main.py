@@ -2,9 +2,11 @@
 classes.
 """
 
-__author__ = "ACE Faculty"
+__author__ = "Lichao Huang"
 __version__ = "1.0.0"
-__credits__ = ""
+__credits__ = "COMP-2327 (268395) Intermediate Software Development"
+
+from shape import *
 
 def main():
     """Test the functionality of the methods encapsulated 
@@ -19,23 +21,50 @@ def main():
     print("*************PART 1****************")
 
     # 1. Create an empty list of Shape objects.
-
+    shapes = []
 
     # 2. Code a statement which creates an instance of the Triangle 
     # class.
     # Append the Triangle to the list of shapes.
-
+    try:
+        # Try to create a Triangle object
+        tri = Triangle("red", 3, 4, 5)
+        # add it to the list
+        shapes.append(tri)
+    except ValueError as e:
+        # If there is an error, report it to the console
+        print(e)
 
     # 3. Code a statement which creates an instance of the Rectangle 
     # class.
     # Append the Rectangle to the list of shapes.
-
+    try:
+        # Try to create a Rectangle object
+        rect = Rectangle("blue", 2, 1)
+        # add it to the list
+        shapes.append(rect)
+    except ValueError as e:
+        # If there is an error, report it to the console
+        print(e)
 
 
     # 4. Code 3 additional statements which creates an instance of 
     # Triangle or Rectangle classes (your choice).
     # Append these instances to the list of shapes.
+    try:
+        shapes.append(Triangle("green", 6, 8, 10))
+    except ValueError as e:
+        print(e)
 
+    try:
+        shapes.append(Rectangle("yellow", 100, 700))
+    except ValueError as e:
+        print(e)
+
+    try:
+        shapes.append(Triangle("pink", 1, 1, 1))
+    except ValueError as e:
+        print(e)
 
     # 5. Iterate through the list of shapes.  
     # On each iteration:
@@ -43,8 +72,16 @@ def main():
     # - print the area of the shape to 2 decimal places
     # - print the perimeter of the shape to 2 decimal places
 
-    # *** END PART 1 ***
+    for shape in shapes:
+        try:
+            print(shape)
+            print(f"Area:{shape.calculate_area:.2f}")
+            print(f"Perimeter:{shape.calculate_perimeter:.2f}")
+        except ValueError as e:
+            print(e)
 
+    # *** END PART 1 ***
+    print("*************PART 1 END****************")
 
 if __name__ == "__main__":
     main()
